@@ -1,0 +1,25 @@
+Command: /Users/louiskwezi/.espressif/python_env/idf5.5_py3.13_env/bin/python /Users/louiskwezi/esp/esp-idf/tools/idf_monitor.py -p /dev/cu.usbserial-58950026451 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /Users/louiskwezi/Desktop/brutal_focus/cpp-intensive/build/cpp-intensive.elf /Users/louiskwezi/Desktop/brutal_focus/cpp-intensive/build/bootloader/bootloader.elf -m '/Users/louiskwezi/.espressif/python_env/idf5.5_py3.13_env/bin/python' '/Users/louiskwezi/esp/esp-idf/tools/idf.py'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbserial-58950026451 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40080400: [0;33m_invalid_pc_placeholder[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m2235[0m
+[0m--- 0x40080644: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m25[0m
+[0m--- 0x400d7db2: [0;33mtask_wdt_timeout_handling[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m436[0m
+[0m--- 0x400d8174: [0;33mtask_wdt_isr[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/esp_system/task_wdt/task_wdt.c[0m[0m:[1;31m509[0m
+[0m--- 0x40082919: [0;33m_xt_lowint1[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1240[0m
+[0m--- 0x400d40e5: [0;33muart_tx_char[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c[0m[0m:[1;31m188[0m
+[0m--- 0x400d47fc: [0;33muart_write[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/esp_driver_uart/src/uart_vfs.c[0m[0m:[1;31m245[0m
+[0m--- 0x400d5756: [0;33mesp_vfs_write[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/vfs/vfs.c[0m[0m:[1;31m982[0m
+[0m--- 0x4000bd83: [0;33m_write_r[0m[0m in [0;32mROM[0m
+[0m--- 0x4000182a: [0;33mwrite[0m[0m in [0;32mROM[0m
+[0m--- 0x400d5179: [0;33mconsole_write[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/esp_vfs_console/vfs_console.c[0m[0m:[1;31m83[0m
+[0m--- 0x400d5756: [0;33mesp_vfs_write[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/vfs/vfs.c[0m[0m:[1;31m982[0m
+[0m--- 0x4000bd83: [0;33m_write_r[0m[0m in [0;32mROM[0m
+[0m--- 0x4000117d: [0;33m__swrite[0m[0m in [0;32mROM[0m
+[0m--- 0x400592fe: [0;33m__sflush_r[0m[0m in [0;32mROM[0m
+[0m--- 0x4005937a: [0;33m_fflush_r[0m[0m in [0;32mROM[0m
+[0m--- 0x400d8f85: [0;33m__sfvwrite_r[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/fvwrite.c[0m[0m:[1;31m251[0m
+[0m--- 0x400d9035: [0;33m_puts_r[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/puts.c[0m[0m:[1;31m91[0m
+[0m--- 0x400d9066: [0;33mputs[0m[0m at [0;32m/builds/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/stdio/puts.c[0m[0m:[1;31m129[0m
+[0m--- 0x400d6213: [0;33mReadSerialInput(void*)[0m[0m at [0;32m/Users/louiskwezi/Desktop/brutal_focus/cpp-intensive/main/cpp-intensive.cpp[0m[0m:[1;31m50[0m
+[0m--- 0x40085cbd: [0;33mvPortTaskWrapper[0m[0m at [0;32m/Users/louiskwezi/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m139[0m
+[0m
