@@ -13,6 +13,20 @@ static const uint8_t buf_len = 255;
 static char *msg_ptr = NULL;
 static volatile uint8_t msg_flag = 0;
 
+static const uint8_t msg_queue_len = 5;
+static QueueHandle_t msg_queue;
+
+void printMsg(void *pvParameter){
+    int item;
+
+    while(1){
+        if (xQueueReceive(msg_queue, &item, 0) == pdPASS){
+            printf("\nReceived message: %d\n", item);
+        }
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
 void readMsg(void *pvParameter){
     char buffer[buf_len];
     int index = 0;
@@ -137,13 +151,25 @@ extern "C" void app_main(void)
     
     gpio_reset_pin(GPIO_NUM_12);
     gpio_set_direction(GPIO_NUM_12, GPIO_MODE_OUTPUT);
-
+    xQueueCreate(msg_queue_len, sizeof(int));
     // xTaskCreate(startTask1, "Task 1", 2048, NULL, 2, &task_1); 
     // xTaskCreate(startTask2, "Task 2", 2048, NULL, 1, &task_2);
     // xTaskCreate(toggleLed, "Toggle LED Task", 2048, NULL, 5, NULL);
     // xTaskCreate(ReadSerialInput, "Read Serial Input Task", 4096, NULL, 3, NULL);
-    xTaskCreate(readMsg, "Read Message Task", 4096, NULL, 2, NULL);
+    // xTaskCreate(readMsg, "Read Message Task", 4096, NULL, 2, NULL);
+    // xTaskCreate(printMsg, "Print Message Task", 4096, NULL, 1, NULL);
     xTaskCreate(printMsg, "Print Message Task", 4096, NULL, 1, NULL);
+
+while(1){
+static int num = 0;
+if(xQueueSend(msg_queue, &num, 10) == pdPASS){
+    printf("Queue full");
+}
+num++;
+
+vTaskDelay(pdMS_TO_TICKS(1000));   // prevent starvation
+
+}
 
 // while(1){
 //     for(int i = 0;i<3;i++){
